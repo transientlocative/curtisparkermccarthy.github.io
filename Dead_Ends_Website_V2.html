@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dead Ends — A Novel by Curtis McCarthy | NovaCivic Corp</title>
+<meta name="description" content="Three colonels attack a town. The Spire wakes up. Hell follows. A supernatural Western by Curtis McCarthy — available now on Amazon.">
+<meta property="og:title" content="Dead Ends — Curtis McCarthy">
+<meta property="og:description" content="Death. Famine. War. Disease. They never left Texas — and Hell followed with them.">
+<meta property="og:type" content="book">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@400;700&family=IM+Fell+English:ital,wght@0,400;1,400&family=Spectral:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
+
+/* ── TOKENS ── */
+:root {
+  --void:    #050200;
+  --deep:    #0a0400;
+  --char:    #110600;
+  --ember:   #c07818;
+  --gold:    #d8a840;
+  --pale:    #e8d4a0;
+  --bone:    #f0e4c0;
+  --blood:   #8b1800;
+  --ash:     #3a1a06;
+  --smoke:   rgba(180,90,20,0.12);
+  --rule:    rgba(180,100,25,0.3);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--void);
+  color: var(--pale);
+  font-family: 'Spectral', serif;
+  font-size: 19px;
+  line-height: 1.75;
+  overflow-x: hidden;
+  cursor: default;
+}
+
+/* ── CUSTOM SCROLLBAR ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #080300; }
+::-webkit-scrollbar-thumb { background: #5a2e08; }
+
+/* ── UTILITY ── */
+.rule {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--rule), transparent);
+  margin: 0 auto;
+}
+.rule-short {
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(200,120,30,0.5), transparent);
+  margin: 20px auto;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ── NAVIGATION ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 18px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(to bottom, rgba(5,2,0,0.95), transparent);
+  backdrop-filter: blur(8px);
+}
+
+.nav-logo {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 6px;
+  color: rgba(180,100,25,0.6);
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: rgba(200,140,50,0.5);
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: rgba(220,160,60,0.9); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 80px 40px 60px;
+}
+
+/* hero background — layered atmosphere */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, #180800 0%, #0a0300 50%, var(--void) 100%),
+    radial-gradient(ellipse 40% 30% at 50% 20%, rgba(180,60,8,0.1) 0%, transparent 70%);
+}
+
+/* hero: star field */
+.hero-stars {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.hero-stars::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(0.8px 0.8px at 8% 12%, rgba(255,240,180,0.5) 0%, transparent 100%),
+    radial-gradient(0.7px 0.7px at 16% 6%, rgba(255,255,220,0.35) 0%, transparent 100%),
+    radial-gradient(1px 1px at 25% 18%, rgba(255,225,140,0.55) 0%, transparent 100%),
+    radial-gradient(0.8px 0.8px at 38% 8%, rgba(255,250,200,0.4) 0%, transparent 100%),
+    radial-gradient(1.2px 1.2px at 50% 14%, rgba(255,235,160,0.6) 0%, transparent 100%),
+    radial-gradient(0.7px 0.7px at 62% 5%, rgba(255,255,235,0.35) 0%, transparent 100%),
+    radial-gradient(0.9px 0.9px at 74% 20%, rgba(255,228,145,0.5) 0%, transparent 100%),
+    radial-gradient(0.8px 0.8px at 85% 10%, rgba(255,245,190,0.4) 0%, transparent 100%),
+    radial-gradient(0.7px 0.7px at 93% 16%, rgba(255,255,215,0.35) 0%, transparent 100%),
+    radial-gradient(1px 1px at 30% 30%, rgba(255,232,150,0.45) 0%, transparent 100%),
+    radial-gradient(0.8px 0.8px at 55% 28%, rgba(255,248,195,0.4) 0%, transparent 100%),
+    radial-gradient(0.9px 0.9px at 78% 32%, rgba(255,235,155,0.45) 0%, transparent 100%);
+}
+
+/* hero vignette */
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 50%,
+    transparent 20%,
+    rgba(0,0,0,0.3) 60%,
+    rgba(0,0,0,0.7) 100%
+  );
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 80px;
+  max-width: 1100px;
+  width: 100%;
+  align-items: center;
+}
+
+/* COVER MOCKUP */
+.cover-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.cover-mockup {
+  width: 280px;
+  aspect-ratio: 6/9.6;
+  position: relative;
+  filter: drop-shadow(-20px 30px 60px rgba(0,0,0,0.9)) drop-shadow(0 0 40px rgba(180,60,0,0.15));
+  animation: coverFloat 6s ease-in-out infinite;
+}
+
+@keyframes coverFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.cover-face {
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(ellipse 80% 55% at 50% 0%, #1a0800, #0a0400 60%, #050200 100%);
+  border: 1px solid rgba(160,90,20,0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 14px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* cover moon */
+.cm-moon {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #c04010, #801808, #3d0800);
+  box-shadow: 0 0 20px rgba(180,40,0,0.4), inset -4px -4px 10px rgba(0,0,0,0.5);
+  margin-top: 10px;
+  flex-shrink: 0;
+}
+
+/* cover title text */
+.cm-title {
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cm-dead {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 0.85;
+  background: linear-gradient(to bottom, #e8c870, #a06010);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.8));
+}
+
+.cm-ends {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 0.85;
+  background: linear-gradient(to bottom, #e8c870, #a06010);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.8));
+}
+
+.cm-rule {
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(180,100,25,0.6), transparent);
+  margin: 8px 0;
+}
+
+.cm-tagline {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 7px;
+  color: rgba(200,140,50,0.55);
+  letter-spacing: 1px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* riders silhouette strip */
+.cm-riders {
+  width: 100%;
+  height: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cm-riders::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 20px;
+  background: #0a0400;
+}
+
+.cm-riders::after {
+  content: '\2605\2605\2605\2605\2605';
+  font-size: 12px;
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #c8921c;
+  letter-spacing: 3px;
+  text-shadow: 0 0 6px rgba(200,140,30,0.4);
+}
+
+.cm-author {
+  font-family: 'Cinzel', serif;
+  font-size: 7px;
+  letter-spacing: 4px;
+  color: rgba(190,120,40,0.65);
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+/* cover corner ornaments */
+.cm-corner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: rgba(180,100,25,0.3);
+  border-style: solid;
+}
+.cm-corner-tl { top: 6px; left: 6px; border-width: 1px 0 0 1px; }
+.cm-corner-tr { top: 6px; right: 6px; border-width: 1px 1px 0 0; }
+.cm-corner-bl { bottom: 6px; left: 6px; border-width: 0 0 1px 1px; }
+.cm-corner-br { bottom: 6px; right: 6px; border-width: 0 1px 1px 0; }
+
+/* buy button under cover */
+.btn-buy {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #c07010 0%, #8a4808 100%);
+  color: #fff8e8;
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  padding: 16px 36px;
+  border: 1px solid rgba(220,160,50,0.3);
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  width: 280px;
+  justify-content: center;
+}
+
+.btn-buy::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.btn-buy:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(180,80,0,0.4);
+  border-color: rgba(220,160,50,0.6);
+}
+
+.btn-buy:hover::before { opacity: 1; }
+
+.btn-buy-sub {
+  font-family: 'Spectral', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: rgba(220,180,80,0.6);
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/* HERO TEXT COL */
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.hero-eyebrow {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 7px;
+  color: rgba(180,100,25,0.55);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.hero-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-weight: 700;
+  font-size: clamp(56px, 8vw, 96px);
+  line-height: 0.85;
+  color: transparent;
+  background: linear-gradient(to bottom, #e8c870 0%, #c0880c 40%, #885008 80%, #602a04 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 4px 16px rgba(0,0,0,0.8));
+  margin-bottom: 22px;
+  animation: heroTitleIn 1.4s ease forwards;
+  opacity: 0;
+}
+
+@keyframes heroTitleIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.hero-hook {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.6;
+  color: rgba(220,170,70,0.7);
+  margin-bottom: 28px;
+  border-left: 2px solid rgba(180,80,10,0.4);
+  padding-left: 20px;
+}
+
+.hero-body {
+  font-size: 17px;
+  color: rgba(220,190,130,0.75);
+  line-height: 1.8;
+  margin-bottom: 28px;
+  font-weight: 300;
+}
+
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+
+.tag {
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border: 1px solid rgba(160,80,15,0.35);
+  color: rgba(190,120,40,0.65);
+}
+
+/* ── SECTION BASE ── */
+section {
+  padding: 100px 40px;
+  position: relative;
+}
+
+.section-inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* ── PROLOGUE EXCERPT ── */
+.excerpt-section {
+  background: linear-gradient(to bottom, var(--void), var(--deep), var(--void));
+}
+
+.section-label {
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  letter-spacing: 8px;
+  color: rgba(160,80,15,0.5);
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+}
+
+.excerpt-box {
+  border: 1px solid rgba(160,80,15,0.2);
+  padding: 50px 60px;
+  position: relative;
+  background: rgba(15,8,2,0.6);
+}
+
+.excerpt-box::before {
+  content: '\201C';
+  font-family: 'IM Fell English', serif;
+  font-size: 120px;
+  line-height: 0.5;
+  color: rgba(180,80,10,0.12);
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+
+.excerpt-text {
+  font-family: 'Spectral', serif;
+  font-size: 18px;
+  line-height: 1.9;
+  color: rgba(230,195,130,0.85);
+  font-weight: 300;
+  position: relative;
+  z-index: 1;
+}
+
+.excerpt-text p { margin-bottom: 20px; }
+.excerpt-text p:last-child { margin-bottom: 0; }
+
+.excerpt-attribution {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: rgba(180,100,30,0.45);
+  text-align: right;
+  margin-top: 24px;
+}
+
+/* ── ABOUT / SERIES ── */
+.about-section {
+  background: var(--void);
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-top: 50px;
+}
+
+.col-card {
+  border-top: 1px solid rgba(160,80,15,0.3);
+  padding-top: 30px;
+}
+
+.col-card h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  letter-spacing: 5px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.col-card p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: rgba(210,175,110,0.7);
+  font-weight: 300;
+}
+
+/* series list */
+.series-list {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.series-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(140,70,10,0.15);
+  font-size: 16px;
+  color: rgba(210,170,100,0.7);
+}
+
+.series-list li:last-child { border-bottom: none; }
+
+.s-num {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: rgba(180,90,15,0.45);
+  flex-shrink: 0;
+  width: 30px;
+}
+
+.s-title {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+}
+
+.s-status {
+  margin-left: auto;
+  font-family: 'Cinzel', serif;
+  font-size: 8px;
+  letter-spacing: 3px;
+  color: rgba(140,70,10,0.4);
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.s-status.live { color: rgba(180,120,30,0.7); }
+
+/* ── AUTHOR ── */
+.author-section {
+  background: linear-gradient(to bottom, var(--void), #0d0500, var(--void));
+}
+
+.author-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.author-ornament {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 40px;
+  color: rgba(160,80,10,0.15);
+  line-height: 1;
+  margin-bottom: 30px;
+}
+
+.author-name-large {
+  font-family: 'Cinzel', serif;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 8px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.author-title-line {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: rgba(190,120,40,0.55);
+  margin-bottom: 36px;
+  letter-spacing: 2px;
+}
+
+.author-bio {
+  font-size: 18px;
+  line-height: 1.85;
+  color: rgba(215,178,115,0.72);
+  font-weight: 300;
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+/* painting note */
+.painting-note {
+  border: 1px solid rgba(160,80,15,0.25);
+  padding: 30px 36px;
+  margin-top: 40px;
+  background: rgba(12,6,1,0.5);
+  text-align: left;
+}
+
+.painting-note .pn-label {
+  font-family: 'Cinzel', serif;
+  font-size: 8px;
+  letter-spacing: 6px;
+  color: rgba(200,120,30,0.45);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.painting-note p {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 17px;
+  color: rgba(210,165,80,0.65);
+  line-height: 1.7;
+}
+
+/* ── GET THE BOOK CTA ── */
+.cta-section {
+  background: linear-gradient(to bottom, var(--void), #0f0601, var(--void));
+  text-align: center;
+}
+
+.cta-inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cta-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 42px;
+  font-weight: 400;
+  color: transparent;
+  background: linear-gradient(to bottom, #e8c870, #a06010);
+  -webkit-background-clip: text;
+  background-clip: text;
+  margin-bottom: 16px;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
+}
+
+.cta-sub {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 19px;
+  color: rgba(200,140,50,0.55);
+  margin-bottom: 50px;
+  line-height: 1.6;
+}
+
+.price-row {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.price-card {
+  border: 1px solid rgba(160,80,15,0.3);
+  padding: 28px 36px;
+  width: 200px;
+  transition: all 0.3s;
+  background: rgba(10,5,1,0.5);
+}
+
+.price-card:hover {
+  border-color: rgba(200,120,30,0.5);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+}
+
+.price-format {
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  letter-spacing: 5px;
+  color: rgba(160,80,15,0.5);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.price-amount {
+  font-family: 'Cinzel', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.price-note {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: rgba(180,110,30,0.45);
+}
+
+.btn-buy-large {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: linear-gradient(135deg, #c07010 0%, #7a3a04 100%);
+  color: #fff8e4;
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  padding: 20px 60px;
+  border: 1px solid rgba(220,160,50,0.3);
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.btn-buy-large::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.btn-buy-large:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(180,80,0,0.45);
+  border-color: rgba(220,160,50,0.5);
+}
+
+.btn-buy-large:hover::before { opacity: 1; }
+
+.cta-note {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: rgba(160,90,20,0.4);
+}
+
+/* ── FOOTER ── */
+footer {
+  padding: 50px 40px;
+  border-top: 1px solid rgba(140,70,10,0.15);
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 6px;
+  color: rgba(160,80,15,0.4);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  list-style: none;
+  margin-bottom: 24px;
+}
+
+.footer-links a {
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: rgba(150,70,10,0.35);
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover { color: rgba(200,120,30,0.6); }
+
+.footer-copy {
+  font-size: 12px;
+  color: rgba(140,70,10,0.3);
+  font-family: 'Cinzel', serif;
+  letter-spacing: 3px;
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .hero-inner { grid-template-columns: 1fr; gap: 50px; text-align: center; }
+  .cover-col { order: -1; }
+  .hero-hook { border-left: none; padding-left: 0; border-top: 2px solid rgba(180,80,10,0.4); padding-top: 16px; }
+  .two-col { grid-template-columns: 1fr; gap: 40px; }
+  .excerpt-box { padding: 36px 28px; }
+  section { padding: 70px 24px; }
+  .btn-buy { width: auto; }
+  .price-row { gap: 16px; }
+}
+/* ── BADGES ── */
+.badges-section {
+  background: var(--void);
+  padding: 50px 40px;
+  border-top: 1px solid rgba(140,70,10,0.12);
+  border-bottom: 1px solid rgba(140,70,10,0.12);
+}
+.badges-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 16px 22px;
+  border: 1px solid rgba(160,80,15,0.3);
+  background: rgba(10,5,1,0.6);
+  min-width: 130px;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.badge::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(180,100,20,0.05) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.badge:hover { border-color: rgba(200,120,30,0.5); transform: translateY(-2px); }
+.badge:hover::before { opacity: 1; }
+.badge-stars {
+  color: #c8921c;
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-shadow: 0 0 8px rgba(200,140,30,0.4);
+}
+.badge-label {
+  font-family: 'Cinzel', serif;
+  font-size: 8px;
+  letter-spacing: 4px;
+  color: rgba(190,120,40,0.65);
+  text-transform: uppercase;
+  text-align: center;
+}
+.badge-sub {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 11px;
+  color: rgba(160,90,20,0.45);
+  text-align: center;
+}
+.badge-divider {
+  width: 1px;
+  height: 60px;
+  background: rgba(160,80,15,0.2);
+}
+/* ── TESTIMONIALS ── */
+.testimonials-section {
+  background: linear-gradient(to bottom, var(--void), #0c0501, var(--void));
+  padding: 100px 40px;
+}
+.testimonials-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-top: 50px;
+}
+.testimonial-card {
+  border: 1px solid rgba(160,80,15,0.2);
+  padding: 32px 30px 24px;
+  background: rgba(10,5,1,0.5);
+  position: relative;
+  transition: all 0.3s;
+}
+.testimonial-card:hover {
+  border-color: rgba(200,120,30,0.35);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+}
+.t-open-quote {
+  font-family: 'IM Fell English', serif;
+  font-size: 60px;
+  line-height: 0.6;
+  color: rgba(180,80,10,0.15);
+  position: absolute;
+  top: 18px;
+  left: 20px;
+}
+.t-stars {
+  font-size: 13px;
+  color: #c8921c;
+  letter-spacing: 3px;
+  margin-bottom: 14px;
+  text-shadow: 0 0 6px rgba(200,140,30,0.3);
+}
+.t-text {
+  font-family: 'Spectral', serif;
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.75;
+  color: rgba(220,185,115,0.8);
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+.t-rule {
+  width: 40px;
+  height: 1px;
+  background: rgba(180,100,25,0.3);
+  margin-bottom: 14px;
+}
+.t-source {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: rgba(180,100,30,0.5);
+  text-transform: uppercase;
+}
+.t-placeholder {
+  font-family: 'Cinzel', serif;
+  font-size: 8px;
+  letter-spacing: 3px;
+  color: rgba(140,70,10,0.3);
+  margin-top: 6px;
+}
+.testimonial-card.featured {
+  grid-column: 1 / -1;
+  border-color: rgba(180,100,20,0.3);
+  background: rgba(15,8,2,0.7);
+}
+.testimonial-card.featured .t-text { font-size: 20px; }
+@media (max-width: 900px) {
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .testimonial-card.featured { grid-column: auto; }
+  .badge-divider { display: none; }
+  .badges-inner { gap: 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-logo">NovaCivic Corp</div>
+  <ul class="nav-links">
+    <li><a href="#excerpt">Preview</a></li>
+    <li><a href="#series">Series</a></li>
+    <li><a href="#author">Author</a></li>
+    <li><a href="#buy">Get the Book</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-stars"></div>
+  <div class="hero-vignette"></div>
+
+  <div class="hero-inner">
+    <!-- COVER + BUY -->
+    <div class="cover-col">
+      <div class="cover-mockup">
+        <div class="cover-face">
+          <div class="cm-corner cm-corner-tl"></div>
+          <div class="cm-corner cm-corner-tr"></div>
+          <div class="cm-corner cm-corner-bl"></div>
+          <div class="cm-corner cm-corner-br"></div>
+          <div class="cm-moon"></div>
+          <div class="cm-title">
+            <span class="cm-dead">DEAD</span>
+            <span class="cm-ends">ENDS</span>
+            <div class="cm-rule"></div>
+            <p class="cm-tagline">Death. Famine. War. Disease.<br>They never left Texas.</p>
+          </div>
+          <div class="cm-riders"></div>
+          <div class="cm-author">Curtis McCarthy</div>
+        </div>
+      </div>
+
+      <a href="https://www.amazon.com/dp/B0F1987LST" target="_blank" rel="noopener" class="btn-buy">
+        Buy on Amazon
+      </a>
+      <p class="btn-buy-sub">Kindle $4.99 &nbsp;·&nbsp; Paperback $14.99</p>
+    </div>
+
+    <!-- HERO TEXT -->
+    <div class="hero-text">
+      <p class="hero-eyebrow">Book One of the Dead Ends Series</p>
+      <h1 class="hero-title">DEAD<br>ENDS</h1>
+
+      <blockquote class="hero-hook">
+        Death. Famine. War. Disease.<br>
+        They never left Texas —<br>
+        and Hell followed with them.
+      </blockquote>
+
+      <p class="hero-body">
+        Three colonels attack a town with no name looking for gold buried under the courthouse.
+        By dawn they've killed everyone in it. Then the treasure comes up empty. The Sheriff is dead.
+        The Indians never showed. And something beneath the desert — something old, something patient —
+        has been watching the whole time.
+      </p>
+
+      <div class="hero-tags">
+        <span class="tag">Weird Western</span>
+        <span class="tag">Supernatural Horror</span>
+        <span class="tag">American Gothic</span>
+        <span class="tag">Four Horsemen</span>
+        <span class="tag">Dark Fantasy</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- ── BADGES ── -->
+<div class="badges-section">
+  <div class="badges-inner">
+
+    <div class="badge reveal">
+      <div class="badge-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="badge-label">Weird Western</div>
+      <div class="badge-sub">Genre</div>
+    </div>
+
+    <div class="badge-divider"></div>
+
+    <div class="badge reveal">
+      <div class="badge-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="badge-label">Book One</div>
+      <div class="badge-sub">Dead Ends Series</div>
+    </div>
+
+    <div class="badge-divider"></div>
+
+    <div class="badge reveal">
+      <div class="badge-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="badge-label">Available Now</div>
+      <div class="badge-sub">Amazon KDP</div>
+    </div>
+
+    <div class="badge-divider"></div>
+
+    <div class="badge reveal">
+      <div class="badge-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="badge-label">Kindle &amp; Print</div>
+      <div class="badge-sub">Both Formats</div>
+    </div>
+
+    <div class="badge-divider"></div>
+
+    <div class="badge reveal">
+      <div class="badge-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="badge-label">NovaCivic Corp</div>
+      <div class="badge-sub">Independent Press</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="rule"></div>
+
+<!-- ── EXCERPT ── -->
+<section class="excerpt-section" id="excerpt">
+  <div class="section-inner">
+    <p class="section-label reveal">From the Prologue</p>
+    <h2 class="section-title reveal">Begin at the End</h2>
+
+    <div class="excerpt-box reveal">
+      <div class="excerpt-text">
+        <p>Rance Spurgeon shot Harry Townsend dead in the street at high noon and felt pretty good about it.</p>
+        <p>Two Pinkerton agents. Twelve years of bad blood. One pair of golden guns Rance had stolen right out of a locked safe — and old Harry Townsend finally got what was coming to him. Rance stood over the body in the dust of that mean street and listened to it not make a sound.</p>
+        <p>Then Harry Townsend sat up.</p>
+        <p>Not like a man waking from sleep. Harry Townsend sat up the way a dead man does when something down below has decided it isn't done with him yet. His eyes opened — and they were wrong. The color was wrong. The light behind them was wrong. Everything about Harry Townsend from that moment forward was going to be deeply, permanently, cosmically wrong.</p>
+        <p>"AND WAR IT WILL BE!" Harry said, in a voice that was his and wasn't. He stood up. He was taller than he'd been a minute ago. He flung open the nearest window and jumped clean out of it into the sky.</p>
+        <p>Rance Spurgeon stood in the street holding two golden guns and watched his dead partner fly away over the rooftops of the Town With No Name.</p>
+        <p>"What a world," Rance said.</p>
+      </div>
+      <p class="excerpt-attribution">— Dead Ends, Prologue</p>
+    </div>
+
+    <div style="text-align:center;margin-top:50px">
+      <a href="https://www.amazon.com/dp/B0F1987LST" target="_blank" rel="noopener" class="btn-buy reveal" style="display:inline-flex;width:auto">
+        Keep Reading on Amazon
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- ── ABOUT + SERIES ── -->
+<section class="about-section" id="series">
+  <div class="section-inner">
+    <p class="section-label reveal">The Story</p>
+    <h2 class="section-title reveal">What Awaits Inside</h2>
+
+    <div class="two-col">
+      <div class="col-card reveal">
+        <h3>The Dead Ends Series</h3>
+        <ul class="series-list">
+          <li>
+            <span class="s-num">I</span>
+            <span class="s-title">Dead Ends</span>
+            <span class="s-status live">Available Now</span>
+          </li>
+          <li>
+            <span class="s-num">II</span>
+            <span class="s-title">All Is Forgiven: In the Prairie</span>
+            <span class="s-status">Coming Soon</span>
+          </li>
+          <li>
+            <span class="s-num">III</span>
+            <span class="s-title">Book Three</span>
+            <span class="s-status">In Development</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-card reveal">
+        <h3>The Voice</h3>
+        <p>Part supernatural Western, part American folk horror, part tall tale — Dead Ends doesn't walk between genres. It rides through them shooting. The voice is completely its own: frontier mythology, dark comedy, genuine dread. The Four Horsemen of the Apocalypse didn't come from Heaven. They came from Texas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- ── AUTHOR ── -->
+<section class="author-section" id="author">
+  <div class="author-inner">
+    <div class="author-ornament reveal">✦</div>
+
+    <h2 class="author-name-large reveal">Curtis McCarthy</h2>
+    <p class="author-title-line reveal">Author &amp; Publisher — NovaCivic Corp</p>
+
+    <div class="rule-short"></div>
+
+    <p class="author-bio reveal">
+      Curtis Parker McCarthy is the founder of NovaCivic Corp and NovaCivic Corp, an independent press with a commitment to original American voices. Dead Ends is Book One of the Dead Ends Series — a supernatural Western saga built from the ground up outside the traditional publishing industry, written with the conviction that the best stories don't wait for permission.
+    </p>
+
+    <div class="painting-note reveal">
+      <p class="pn-label">The Cover</p>
+      <p>The final cover of Dead Ends is a hand-painted original — Rembrandt-influenced, three colors, one canvas, one brush. It is being painted by the author. When it's finished, it will be the most striking cover on Amazon in its genre. A limited signed collector's edition is planned. Updates at novaciviccorp.simdif.com.</p>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="testimonials-section">
+  <div class="testimonials-inner">
+    <p class="section-label reveal">Early Readers</p>
+    <h2 class="section-title reveal">What They're Saying</h2>
+
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card featured reveal">
+        <div class="t-open-quote">&ldquo;</div>
+        <div class="t-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="t-text">Dead Ends doesn&rsquo;t walk between genres. It rides through them shooting. The voice is completely its own &mdash; frontier mythology, dark comedy, genuine dread all at once. I read the prologue twice before I kept going. Rance Spurgeon watching his dead partner fly away over the rooftops is an image that stays with you.</p>
+        <div class="t-rule"></div>
+        <p class="t-source">Early Reader</p>
+        <p class="t-placeholder">&#8212; Replace with your first Amazon review</p>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <div class="t-open-quote">&ldquo;</div>
+        <div class="t-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="t-text">The Four Horsemen rode out of Kentucky and I didn&rsquo;t see it coming. This is the kind of weird Western fiction that the genre needed someone to write.</p>
+        <div class="t-rule"></div>
+        <p class="t-source">Amazon Review</p>
+        <p class="t-placeholder">&#8212; Placeholder &mdash; swap when live</p>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <div class="t-open-quote">&ldquo;</div>
+        <div class="t-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="t-text">Colonel Vanderbilt tweaking his mustache-whiskers before ordering an apocalypse is the funniest and most terrifying sentence I&rsquo;ve read this year. Both at once. That&rsquo;s the whole book.</p>
+        <div class="t-rule"></div>
+        <p class="t-source">Goodreads Reader</p>
+        <p class="t-placeholder">&#8212; Placeholder &mdash; swap when live</p>
+      </div>
+
+    </div>
+
+    <p style="text-align:center;margin-top:36px;font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;color:rgba(140,70,10,0.3);">
+      LEAVE YOUR REVIEW &mdash; <a href="https://www.amazon.com/dp/B0F1987LST" target="_blank" style="color:rgba(180,100,30,0.5);border-bottom:1px solid rgba(180,100,30,0.25);">AMAZON.COM/DP/B0F1987LST</a>
+    </p>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- ── CTA ── -->
+<section class="cta-section" id="buy">
+  <div class="cta-inner">
+    <h2 class="cta-title reveal">Dead Ends</h2>
+    <p class="cta-sub reveal">
+      Book One of the Dead Ends Series<br>
+      by Curtis McCarthy
+    </p>
+
+    <div class="price-row">
+      <div class="price-card reveal">
+        <p class="price-format">Kindle</p>
+        <p class="price-amount">$4.99</p>
+        <p class="price-note">Instant delivery</p>
+      </div>
+      <div class="price-card reveal">
+        <p class="price-format">Paperback</p>
+        <p class="price-amount">$14.99</p>
+        <p class="price-note">Ships from Amazon</p>
+      </div>
+    </div>
+
+    <a href="https://www.amazon.com/dp/B0F1987LST" target="_blank" rel="noopener" class="btn-buy-large reveal">
+      Buy on Amazon
+    </a>
+
+    <p class="cta-note reveal">Available now on Amazon KDP &bull; ASIN B0F1987LST &bull; NovaCivic Corp</p>
+  </div>
+</section>
+
+<!-- ── WEST BROOK AVENUE ── -->
+<div class="rule"></div>
+
+<section style="background:linear-gradient(to bottom, var(--void), #080508, var(--void));padding:100px 40px;">
+  <div style="max-width:860px;margin:0 auto;text-align:center;">
+
+    <p class="section-label reveal" style="margin-bottom:16px;">Also from NovaCivic Corp</p>
+
+    <h2 style="font-family:'Cinzel Decorative',serif;font-size:clamp(22px,4vw,38px);font-weight:400;color:transparent;background:linear-gradient(to bottom,#c8d8f0,#8090b8);-webkit-background-clip:text;background-clip:text;filter:drop-shadow(0 2px 8px rgba(0,0,0,0.8));margin-bottom:12px;line-height:1.2;" class="reveal">
+      The House on West Brook Avenue
+    </h2>
+
+    <p style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:5px;color:rgba(150,160,200,0.5);margin-bottom:36px;" class="reveal">
+      Book One of the West Brook Avenue Series
+    </p>
+
+    <div style="border:1px solid rgba(120,140,200,0.2);padding:36px 40px;background:rgba(8,5,12,0.6);margin-bottom:36px;position:relative;" class="reveal">
+      <div style="font-family:'IM Fell English',serif;font-size:60px;line-height:0.6;color:rgba(120,140,200,0.1);position:absolute;top:18px;left:20px;">&ldquo;</div>
+      <p style="font-family:'Spectral',serif;font-style:italic;font-size:18px;line-height:1.8;color:rgba(190,200,230,0.75);margin-bottom:16px;position:relative;z-index:1;">
+        It&rsquo;s never-ending.
+      </p>
+      <div style="width:40px;height:1px;background:rgba(140,160,210,0.3);margin:0 auto 16px;"></div>
+      <p style="font-family:'Spectral',serif;font-size:17px;line-height:1.8;color:rgba(180,188,215,0.7);">
+        Elmsbury, New Jersey. 1985. The Eldridge manor sits at the end of West Brook Avenue
+        with a ghost in the chimney, a butler who never drives his car, and a 15-year-old
+        girl named Mattie who already knows more about the supernatural than the professionals do.
+        Chase Michael Frehly arrives with a loose deadbolt and a nuclear clock watch set to the
+        exact right time. Nobody asked him to fix anything. He fixes it anyway.
+        Then the ghosts attack.
+      </p>
+      <div style="width:40px;height:1px;background:rgba(140,160,210,0.3);margin:16px auto 0;"></div>
+    </div>
+
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:36px;" class="reveal">
+      <span style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;padding:6px 14px;border:1px solid rgba(120,140,200,0.3);color:rgba(160,175,220,0.6);">Cozy Paranormal</span>
+      <span style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;padding:6px 14px;border:1px solid rgba(120,140,200,0.3);color:rgba(160,175,220,0.6);">Thriller</span>
+      <span style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;padding:6px 14px;border:1px solid rgba(120,140,200,0.3);color:rgba(160,175,220,0.6);">1985 New Jersey</span>
+      <span style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;padding:6px 14px;border:1px solid rgba(120,140,200,0.3);color:rgba(160,175,220,0.6);">Ghost Fiction</span>
+    </div>
+
+    <p style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:6px;color:rgba(140,155,200,0.45);text-transform:uppercase;" class="reveal">
+      Coming Soon &mdash; NovaCivic Corp
+    </p>
+
+  </div>
+</section>
+
+<!-- ── MORE TITLES ── -->
+<div class="rule"></div>
+
+<section style="background:linear-gradient(to bottom,var(--void),#060408,var(--void));padding:100px 40px;">
+  <div style="max-width:900px;margin:0 auto;">
+
+    <p class="section-label reveal">Also from NovaCivic Corp</p>
+    <h2 class="section-title reveal">More Titles Coming</h2>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px;">
+
+      <!-- New Elysium -->
+      <div style="border:1px solid rgba(100,60,160,0.25);padding:28px 26px;background:rgba(8,4,12,0.6);" class="reveal">
+        <p style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:5px;color:rgba(140,100,200,0.5);text-transform:uppercase;margin-bottom:10px;">Sci-Fi / Comedy / RPG Fiction</p>
+        <h3 style="font-family:'Cinzel Decorative',serif;font-size:18px;font-weight:400;color:rgba(180,140,230,0.85);margin-bottom:6px;line-height:1.3;">New Elysium: Next Rock</h3>
+        <p style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;color:rgba(130,90,190,0.45);margin-bottom:14px;">The First Saga &mdash; Let bygones be bygones</p>
+        <p style="font-family:'Spectral',serif;font-style:italic;font-size:15px;line-height:1.7;color:rgba(190,160,230,0.65);">Mouse. Helix. Toad. The Dark Order. 667 on their hands. New Game Plus. They&rsquo;re happy. The end. Then it continues.</p>
+        <p style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;color:rgba(120,80,180,0.4);margin-top:14px;text-transform:uppercase;">Coming Soon &mdash; NovaCivic Corp</p>
+      </div>
+
+      <!-- My Tank -->
+      <div style="border:1px solid rgba(100,140,60,0.25);padding:28px 26px;background:rgba(4,8,4,0.6);" class="reveal">
+        <p style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:5px;color:rgba(100,160,80,0.5);text-transform:uppercase;margin-bottom:10px;">Military Humor / Parody</p>
+        <h3 style="font-family:'Cinzel Decorative',serif;font-size:16px;font-weight:400;color:rgba(140,200,100,0.85);margin-bottom:6px;line-height:1.3;">My Tank Is A Fighting Friend</h3>
+        <p style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;color:rgba(100,150,70,0.45);margin-bottom:14px;">Weird Wonders of World War 2 Fully Realized</p>
+        <p style="font-family:'Spectral',serif;font-style:italic;font-size:15px;line-height:1.7;color:rgba(160,210,130,0.65);">Avdotya has settled her tiny bottom on the sofa. Her relaxing drink is a toxic concoction of rum and brandy. Col. Mirsk drinks his chocolate milk. The tank doors open.</p>
+        <p style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;color:rgba(90,140,60,0.4);margin-top:14px;text-transform:uppercase;">Forthcoming &mdash; Penguin Republic Books / NovaCivic Corp</p>
+      </div>
+
+      <!-- Dead Ends 2 -->
+      <div style="border:1px solid rgba(180,100,25,0.25);padding:28px 26px;background:rgba(10,5,1,0.6);" class="reveal">
+        <p style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:5px;color:rgba(180,100,25,0.5);text-transform:uppercase;margin-bottom:10px;">Wild Western / Horror</p>
+        <h3 style="font-family:'Cinzel Decorative',serif;font-size:18px;font-weight:400;color:rgba(220,160,60,0.85);margin-bottom:6px;line-height:1.3;">All Is Forgiven: In the Prairie</h3>
+        <p style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;color:rgba(160,90,20,0.45);margin-bottom:14px;">Dead Ends Series &mdash; Book Two</p>
+        <p style="font-family:'Spectral',serif;font-style:italic;font-size:15px;line-height:1.7;color:rgba(220,180,110,0.65);">Rance and Harry have more road ahead of them. The Horsemen spread into the prairie. The golden guns&rsquo; function is revealed. What happened in Kentucky comes out.</p>
+        <p style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;color:rgba(150,80,15,0.4);margin-top:14px;text-transform:uppercase;">Coming Soon &mdash; NovaCivic Corp</p>
+      </div>
+
+      <!-- 100+ catalog -->
+      <div style="border:1px solid rgba(160,160,160,0.15);padding:28px 26px;background:rgba(8,8,8,0.6);" class="reveal">
+        <p style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:5px;color:rgba(140,140,140,0.4);text-transform:uppercase;margin-bottom:10px;">Full Catalog</p>
+        <h3 style="font-family:'Cinzel Decorative',serif;font-size:18px;font-weight:400;color:rgba(200,200,200,0.7);margin-bottom:6px;line-height:1.3;">100+ Titles in Development</h3>
+        <p style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;color:rgba(120,120,120,0.4);margin-bottom:14px;">Multiple Series &mdash; Multiple Genres &mdash; Multiple Species</p>
+        <p style="font-family:'Spectral',serif;font-style:italic;font-size:15px;line-height:1.7;color:rgba(180,180,180,0.55);">Dead Ends. West Brook Avenue. New Elysium. My Tank Is A Fighting Friend. Three species series. Standalone titles. Short fiction. The full catalog is in development and growing.</p>
+        <p style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;color:rgba(120,120,120,0.3);margin-top:14px;text-transform:uppercase;">NovaCivic Corp &mdash; novaciviccorp.simdif.com</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<div class="rule"></div>
+
+<!-- ── RECIPES ── -->
+<section style="background:linear-gradient(to bottom,var(--void),#080500,var(--void));padding:100px 40px;">
+  <div style="max-width:900px;margin:0 auto;">
+    <p class="section-label reveal">NovaCivic Corp Recipes</p>
+    <h2 class="section-title reveal">The Cookbook</h2>
+    <p style="font-family:'IM Fell English',serif;font-style:italic;font-size:17px;color:rgba(180,130,50,0.55);text-align:center;margin-bottom:40px;" class="reveal">All rights reserved. Curtis owns everything. Forever.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;">
+
+      <div style="border:1px solid rgba(180,100,20,0.2);padding:20px;background:rgba(10,5,1,0.6);" class="reveal">
+        <p style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;color:rgba(180,100,20,0.5);text-transform:uppercase;margin-bottom:8px;">Okie's</p>
+        <p style="font-family:'Spectral',serif;font-size:15px;color:rgba(220,175,90,0.8);font-weight:600;margin-bottom:6px;">Zam! BBQ Sauce</p>
+        <p style="font-family:'Spectral',serif;font-style:italic;font-size:13px;color:rgba(180,140,60,0.6);line-height:1.6;">Smoke, water, molasses, sugar, salt, pepper, lemon juice, flour, EVOO. House made. Curtis makes it.</p>
+      </div>
+
+      <div style="border:1px solid rgba(180,100,20,0.2);padding:20px;background:rgba(10,5,1,0.6);" class="reveal">
+        <p style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;color:rgba(180,100,20,0.5);text-transform:uppercase;margin-bottom:8px;">Okie's</p>
+        <p style="font-family:'Spectral',serif;font-size:15px;color:rgba(220,175,90,0.8);font-weight:600;margin-bottom:6px;">Pork Ribs &amp; Steak Megamelt</p>
+        <p style="font-family:'Spectral',serif;font-style:italic;font-size:13px;color:rgba(180,140,60,0.6);line-height:1.6;">Rinse, dunk in Zam!, fry 40 min. T-bone: 40 min each side. Plate immediately.</p>
+      </div>
+
+      <div style="border:1px solid rgba(180,100,20,0.2);padding:20px;background:rgba(10,5,1,0.6);" class="reveal">
+        <p style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;color:rgba(180,100,20,0.5);text-transform:uppercase;margin-bottom:8px;">Signature</p>
+        <p style="font-family:'Spectral',serif;font-size:15px;color:rgba(220,175,90,0.8);font-weight:600;margin-bottom:6px;">Heinlein&rsquo;s Heroic Hotdogs</p>
+        <p style="font-family:'Spectral',serif;font-style:italic;font-size:13px;color:rgba(180,140,60,0.6);line-height:1.6;">Hugga Dog. Penis breath is the answer. $100 per. It&rsquo;s Awesome.</p>
+      </div>
+
+      <div style="border:1px solid rgba(180,100,20,0.2);padding:20px;background:rgba(10,5,1,0.6);" class="reveal">
+        <p style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;color:rgba(180,100,20,0.5);text-transform:uppercase;margin-bottom:8px;">West Brook Avenue</p>
+        <p style="font-family:'Spectral',serif;font-size:15px;color:rgba(220,175,90,0.8);font-weight:600;margin-bottom:6px;">Mr. Tophat&rsquo;s Special Hot Mustard</p>
+        <p style="font-family:'Spectral',serif;font-style:italic;font-size:13px;color:rgba(180,140,60,0.6);line-height:1.6;">Cucumber, crushed tomato ketchup (not pur&eacute;ed), one cup hot mustard. Winston&rsquo;s recipe.</p>
+      </div>
+
+      <div style="border:1px solid rgba(180,100,20,0.2);padding:20px;background:rgba(10,5,1,0.6);" class="reveal">
+        <p style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;color:rgba(180,100,20,0.5);text-transform:uppercase;margin-bottom:8px;">Bangor Civic Mall</p>
+        <p style="font-family:'Spectral',serif;font-size:15px;color:rgba(220,175,90,0.8);font-weight:600;margin-bottom:6px;">Sbarro&rsquo;s / Chinese Chang&rsquo;s / Sandwich Joe&rsquo;s</p>
+        <p style="font-family:'Spectral',serif;font-style:italic;font-size:13px;color:rgba(180,140,60,0.6);line-height:1.6;">Full menus. General Tso&rsquo;s sauce is dangerous. Sign up. Curtis&rsquo; Pickles when available.</p>
+      </div>
+
+      <div style="border:1px solid rgba(180,100,20,0.2);padding:20px;background:rgba(10,5,1,0.6);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;" class="reveal">
+        <p style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;color:rgba(180,100,20,0.4);text-transform:uppercase;margin-bottom:8px;">Full Cookbook</p>
+        <p style="font-family:'Spectral',serif;font-size:14px;color:rgba(180,130,50,0.6);font-style:italic;">All recipes available in the NovaCivic Corp Cookbook &mdash; novaciviccorp.simdif.com</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── DJ SERVICES ── -->
+<section style="background:linear-gradient(to bottom,var(--void),#03060a,var(--void));padding:100px 40px;">
+  <div style="max-width:860px;margin:0 auto;text-align:center;">
+
+    <p class="section-label reveal">NovaCivic Corp Services</p>
+    <h2 class="section-title reveal" style="color:rgba(180,200,240,0.8);">DJ Services</h2>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:40px 0;text-align:left;">
+
+      <div style="border:1px solid rgba(80,120,200,0.2);padding:28px 26px;background:rgba(4,6,14,0.7);" class="reveal">
+        <h3 style="font-family:'Cinzel',serif;font-size:16px;letter-spacing:4px;color:rgba(140,180,240,0.8);text-transform:uppercase;margin-bottom:10px;">Don Lime</h3>
+        <p style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;color:rgba(100,140,200,0.45);text-transform:uppercase;margin-bottom:14px;">Ph&ouml;nk &mdash; Original Music &mdash; Solo</p>
+        <p style="font-family:'Spectral',serif;font-size:16px;line-height:1.7;color:rgba(180,200,240,0.65);">Original ph&ouml;nk. DJs alone. The dark lane. Not genre-specific but ph&ouml;nk by preference. Every set is original.</p>
+      </div>
+
+      <div style="border:1px solid rgba(80,180,200,0.2);padding:28px 26px;background:rgba(3,8,12,0.7);" class="reveal">
+        <h3 style="font-family:'Cinzel',serif;font-size:16px;letter-spacing:4px;color:rgba(120,210,230,0.8);text-transform:uppercase;margin-bottom:10px;">DJ Black</h3>
+        <p style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;color:rgba(80,170,190,0.45);text-transform:uppercase;margin-bottom:14px;">Trance &mdash; Original Music &mdash; Solo</p>
+        <p style="font-family:'Spectral',serif;font-size:16px;line-height:1.7;color:rgba(160,220,240,0.65);">Original trance. DJs alone. Not genre-specific but trance by preference. Different from Don Lime in every way that counts. Every set is original.</p>
+      </div>
+
+    </div>
+
+    <div style="border:1px solid rgba(80,140,200,0.2);padding:20px 30px;background:rgba(4,6,14,0.5);display:inline-block;" class="reveal">
+      <p style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:4px;color:rgba(120,160,220,0.6);text-transform:uppercase;">Booking</p>
+      <p style="font-family:'Spectral',serif;font-size:17px;color:rgba(180,210,240,0.7);margin-top:8px;">$23,000,000 guaranteed &nbsp;&bull;&nbsp; $23,000 estimated</p>
+      <p style="font-family:'IM Fell English',serif;font-style:italic;font-size:14px;color:rgba(120,160,200,0.4);margin-top:6px;">Food, drink, and merchandise included. Contact via novaciviccorp.simdif.com</p>
+    </div>
+
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<div class="rule"></div>
+
+<!-- ── BANGOR GOVERNMENT MALL ── -->
+<section style="background:linear-gradient(to bottom,var(--void),#06080a,var(--void));padding:100px 40px;">
+  <div style="max-width:860px;margin:0 auto;text-align:center;">
+
+    <p class="section-label reveal">NovaCivic Corp Property</p>
+    <h2 class="section-title reveal" style="color:rgba(220,180,100,0.85);">Bangor Civic Mall</h2>
+    <p style="font-family:'IM Fell English',serif;font-style:italic;font-size:18px;color:rgba(180,140,60,0.55);margin-bottom:40px;" class="reveal">Curtis owns it.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px;text-align:left;">
+      <div style="border:1px solid rgba(180,130,30,0.2);padding:18px 20px;background:rgba(10,7,1,0.6);" class="reveal">
+        <p style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;color:rgba(180,120,25,0.5);text-transform:uppercase;margin-bottom:8px;">Restaurants</p>
+        <p style="font-family:'Spectral',serif;font-size:15px;color:rgba(220,180,100,0.75);line-height:1.7;">Sbarro&rsquo;s &bull; Chinese Chang&rsquo;s &bull; Sandwich Joe&rsquo;s</p>
+      </div>
+      <div style="border:1px solid rgba(180,130,30,0.2);padding:18px 20px;background:rgba(10,7,1,0.6);" class="reveal">
+        <p style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;color:rgba(180,120,25,0.5);text-transform:uppercase;margin-bottom:8px;">Retail</p>
+        <p style="font-family:'Spectral',serif;font-size:15px;color:rgba(220,180,100,0.75);line-height:1.7;">GameStop &bull; KB Toys &bull; JC Penney &bull; Macy&rsquo;s &bull; Dick&rsquo;s &bull; 9 rented stores</p>
+      </div>
+      <div style="border:1px solid rgba(180,130,30,0.2);padding:18px 20px;background:rgba(10,7,1,0.6);" class="reveal">
+        <p style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;color:rgba(180,120,25,0.5);text-transform:uppercase;margin-bottom:8px;">Other</p>
+        <p style="font-family:'Spectral',serif;font-size:15px;color:rgba(220,180,100,0.75);line-height:1.7;">Arcade &bull; Cummie&rsquo;s Sundaes &bull; Casino &bull; Church &bull; School &bull; Theater</p>
+      </div>
+    </div>
+
+    <div style="border:1px solid rgba(180,130,30,0.2);padding:24px 30px;background:rgba(10,7,1,0.5);margin-bottom:30px;text-align:left;" class="reveal">
+      <p style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:5px;color:rgba(160,110,20,0.5);text-transform:uppercase;margin-bottom:12px;">The Specs</p>
+      <p style="font-family:'Spectral',serif;font-size:16px;line-height:1.8;color:rgba(210,170,90,0.7);">14 stores. 3 restaurants. 1 arcade. 4 entrances. Every store has its own entrance. The roof is finite. HVAC. Two triangle ad things. It&rsquo;s not nice. It is operational. Staff: one manager, one janitor, one candy, one security. Police check once a day. $100 billion valuation for Ultimate Mall is on record.</p>
+    </div>
+
+    <p style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:5px;color:rgba(160,110,20,0.4);text-transform:uppercase;" class="reveal">Clothing Boxes &bull; Gift Boxes &bull; NovaCivic Merchandise &bull; Please Clothing Line</p>
+
+  </div>
+</section>
+
+<!-- ── NOVACIVIC HIRING ── -->
+<section style="background:var(--void);padding:80px 40px;">
+  <div style="max-width:700px;margin:0 auto;text-align:center;">
+    <p class="section-label reveal">Join the Team</p>
+    <h2 class="section-title reveal">NovaCivic Corp Is Hiring</h2>
+    <p style="font-family:'Spectral',serif;font-size:18px;line-height:1.8;color:rgba(210,175,110,0.7);margin-bottom:28px;" class="reveal">Commission-only closers. 20 sales per week quota. Most individual sales run $3M+ the day they close. Realistic annual earning: $1M+. You earn what you close &mdash; which means you are not being stolen from.</p>
+    <p style="font-family:'IM Fell English',serif;font-style:italic;font-size:17px;color:rgba(180,130,50,0.55);margin-bottom:36px;" class="reveal">Home sales. B2B. Catering. Publishing services. SEO. They gotta commit to be alive.</p>
+    <a href="https://novaciviccorp.simdif.com/careers.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,#c07010,#7a3a04);color:#fff8e4;font-family:'Cinzel',serif;font-size:13px;font-weight:600;letter-spacing:4px;text-transform:uppercase;padding:16px 44px;border:1px solid rgba(220,160,50,0.3);text-decoration:none;transition:all 0.3s;" class="reveal">Apply at NovaCivic Corp</a>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p class="footer-logo">NovaCivic Corp</p>
+  <ul class="footer-links">
+    <li><a href="https://www.amazon.com/dp/B0F1987LST" target="_blank">Dead Ends &mdash; Amazon</a></li>
+    <li><a href="https://novaciviccorp.simdif.com" target="_blank">NovaCivic Corp</a></li>
+    <li><a href="https://novaciviccorp.simdif.com/careers.html" target="_blank">Careers</a></li>
+  </ul>
+  <p class="footer-copy">&copy; 2026 Curtis Parker McCarthy &bull; All Rights Reserved &bull; NovaCivic Corp</p>
+</footer>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Staggered children
+document.querySelectorAll('.price-row .price-card, .hero-tags .tag').forEach((el, i) => {
+  el.style.transitionDelay = `${i * 0.1}s`;
+});
+</script>
+
+</body>
+</html>
